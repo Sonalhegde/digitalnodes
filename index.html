@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Smart Railway Dashboard</title>
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    #controls {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      z-index: 1000;
+
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    #startTrain {
+      background: #28a745;
+      color: white;
+    }
+
+    #stopTrain {
+      background: #dc3545;
+      color: white;
+    }
+
+    #closeGate {
+      background: #ff9800;
+      color: white;
+    }
+
+    #openGate {
+      background: #2196f3;
+      color: white;
+    }
+
+    #statusPanel {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+
+      background: rgba(0,0,0,0.8);
+      color: white;
+
+      padding: 15px;
+      border-radius: 10px;
+
+      min-width: 220px;
+
+      z-index: 1000;
+    }
+
+    #statusPanel h3 {
+      margin-top: 0;
+    }
+
+    #app {
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Control Buttons -->
+  <div id="controls">
+
+    <button id="startTrain">
+      🚂 Start Train
+    </button>
+
+    <button id="stopTrain">
+      ⛔ Stop Train
+    </button>
+
+    <button id="closeGate">
+      🚧 Close Gate
+    </button>
+
+    <button id="openGate">
+      ✅ Open Gate
+    </button>
+
+  </div>
+
+  <!-- Status Dashboard -->
+  <div id="statusPanel">
+
+    <h3>Railway Status</h3>
+
+    <p>
+      Train:
+      <span id="trainStatus">Stopped</span>
+    </p>
+
+    <p>
+      Gate:
+      <span id="gateStatus">Open</span>
+    </p>
+
+    <p>
+      RFID:
+      <span id="rfidStatus">Waiting</span>
+    </p>
+
+    <p>
+      Obstacle:
+      <span id="obstacleStatus">None</span>
+    </p>
+
+  </div>
+
+  <!-- Three.js App -->
+  <div id="app"></div>
+
+  <script type="module" src="/src/main.js"></script>
+
+</body>
+</html>
